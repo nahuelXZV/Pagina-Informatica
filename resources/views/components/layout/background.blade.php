@@ -1,6 +1,6 @@
 <div class="relative">
-    <img src="https://www.santacruz.gob.bo/sites/default/files/inline-images/1_140.jpg" alt="Imagen de fondo"
-        class="w-screen h-max md:h-screen">
+    <img src="https://ei-uagrm.edu.bo/wp-content/uploads/2023/05/eiuagrm-4.webp"
+        alt="Imagen de fondo" class="w-screen h-max md:h-screen">
     <div class="absolute inset-24 flex justify-center items-center">
         <div class="text-center text-white">
             <p class="text:3xl mt-7 md:mt-0 md:text-6xl font-bold uppercase">Ingenieria Informática</p>
