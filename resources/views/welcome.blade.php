@@ -11,78 +11,10 @@
             </a>
         </div>
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                <img class="rounded-t-lg"
-                    src="https://files.uagrm.edu.bo/entidad/11/image/CUP-PSA/CARNET_UNIVERSITARIO.jpg" alt="" />
-                <div class="p-5">
-                    <p class="mb-1 font-normal text-gray-500 ">
-                        10 de septiembre de 2021
-                    </p>
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Entrega de
-                        carnet
-                    </h5>
-                    <p class="font-normal text-gray-500 ">Here are the biggest enterprise
-                        technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </div>
+            @foreach ($noticias as $noticia)
+                <x-shared.card-noticias :url="$noticia->url" :date="$noticia->fecha" :title="$noticia->titulo" :content="$noticia->descripcion" />
+            @endforeach
 
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                <a href="#">
-                    <img class="rounded-t-lg"
-                        src="https://files.uagrm.edu.bo/entidad/11/image/CUP-PSA/CARNET_UNIVERSITARIO.jpg"
-                        alt="" />
-                </a>
-                <div class="p-5">
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                        10 de septiembre de 2021
-                    </p>
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Entrega de
-                        carnet
-                    </h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                        technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </div>
-
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                <a href="#">
-                    <img class="rounded-t-lg"
-                        src="https://files.uagrm.edu.bo/entidad/11/image/CUP-PSA/CARNET_UNIVERSITARIO.jpg"
-                        alt="" />
-                </a>
-                <div class="p-5">
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                        10 de septiembre de 2021
-                    </p>
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Entrega de
-                        carnet
-                    </h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                        technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </div>
-
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                <a href="#">
-                    <img class="rounded-t-lg"
-                        src="https://files.uagrm.edu.bo/entidad/11/image/CUP-PSA/CARNET_UNIVERSITARIO.jpg"
-                        alt="" />
-                </a>
-                <div class="p-5">
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                        10 de septiembre de 2021
-                    </p>
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Entrega de
-                        carnet
-                    </h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                        technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </div>
         </div>
 
     </div>

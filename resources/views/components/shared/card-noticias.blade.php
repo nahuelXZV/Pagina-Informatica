@@ -1,7 +1,7 @@
 @props(['url' => 'https://picsum.photos/600/400/?random', 'date' => '25 de diciembre 2023', 'title' => '', 'content' => ''])
 
 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-    <img class="rounded-t-lg" src="{{ $url }}" alt="" />
+    <img class="rounded-t-lg w-full h-52" src="{{ $url }}" alt="" />
     <div class="p-5">
         <p class="mb-1 font-normal text-gray-500 ">
             {{ $date }}

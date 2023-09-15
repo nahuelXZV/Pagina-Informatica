@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire\Dashboard\Users;
+namespace App\Livewire\Dashboard\Noticias;
 
-use App\Models\User;
+use App\Models\Noticias;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ListUsuario extends Component
+class ListNoticias extends Component
 {
     use WithPagination;
     public $search = '';
@@ -28,7 +28,7 @@ class ListUsuario extends Component
 
     public function delete($id)
     {
-        if (User::DeleteUsuario($id)) {
+        if (Noticias::DeleteNoticia($id)) {
             $this->message = 'Eliminado correctamente';
             $this->type = 'success';
         } else {
@@ -40,7 +40,7 @@ class ListUsuario extends Component
 
     public function render()
     {
-        $users = User::GetUsuarios($this->search, 'ASC', 20);
-        return view('livewire.dashboard.users.list-usuario', compact('users'))->layout('layouts.dashboard');
+        $noticias = Noticias::GetNoticiasPaginate($this->search, 'ASC', 20);
+        return view('livewire.dashboard.noticias.list-noticias', compact('noticias'))->layout('layouts.dashboard');
     }
 }

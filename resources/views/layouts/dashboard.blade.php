@@ -144,7 +144,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('noticia.list') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg group hover:bg-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                             class="w-6 h-6">
@@ -158,7 +158,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('tramite.list') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg group hover:bg-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                             class="w-6 h-6">
