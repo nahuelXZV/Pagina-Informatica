@@ -52,12 +52,6 @@ Route::middleware([
         Route::get('/edit/{rol}', EditRol::class)->name('rol.edit');
     });
 
-    Route::group(['prefix' => 'rol'], function () {
-        Route::get('/list', ListRol::class)->name('rol.list');
-        Route::get('/new', NewRol::class)->name('rol.new');
-        Route::get('/edit/{rol}', EditRol::class)->name('rol.edit');
-    });
-
     Route::group(['prefix' => 'noticia'], function () {
         Route::get('/list', ListNoticias::class)->name('noticia.list');
         Route::get('/new', NewNoticias::class)->name('noticia.new');

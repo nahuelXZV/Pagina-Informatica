@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('fecha');
             $table->string('url_imagen');
             $table->string('nombre_imagen');
-            $table->string('url_carta');
-            $table->string('nombre_carta');
+            $table->string('url_carta')->nullable();
+            $table->string('nombre_carta')->nullable();
             $table->timestamps();
         });
     }

@@ -4,11 +4,14 @@ namespace App\Livewire\Dashboard\Noticias;
 
 use App\Models\Noticias;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 use Livewire\WithPagination;
 
 class ListNoticias extends Component
 {
     use WithPagination;
+    use WithFileUploads;
+
     public $search = '';
     public $notificacion = false;
     public $type = 'success';

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Noticias extends Model
 {
@@ -13,7 +14,8 @@ class Noticias extends Model
         "titulo",
         "descripcion",
         "fecha",
-        "url"
+        "url",
+        "nombre_imagen"
     ];
 
     // TODO VALIDATIONS
@@ -21,7 +23,6 @@ class Noticias extends Model
         'noticiaArray.titulo' => 'required|max:30',
         'noticiaArray.descripcion' => 'required|max:100',
         'noticiaArray.fecha' => 'required',
-        'noticiaArray.url' => 'required',
         'noticiaArray.imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
     ];
     static public $messages = [
@@ -30,7 +31,6 @@ class Noticias extends Model
         'noticiaArray.descripcion.required' => 'La descripcion es requerida',
         'noticiaArray.descripcion.max' => 'La descripcion no puede superar los 100 caracteres',
         'noticiaArray.fecha.required' => 'La fecha es requerida',
-        'noticiaArray.url.required' => 'La url es requerida',
         'noticiaArray.imagen.required' => 'La imagen es requerida',
         'noticiaArray.imagen.image' => 'La imagen debe ser una imagen valida',
         'noticiaArray.imagen.mimes' => 'La imagen debe ser una imagen valida'
@@ -43,29 +43,36 @@ class Noticias extends Model
             "titulo" => $data['titulo'],
             "descripcion" => $data['descripcion'],
             "fecha" => $data['fecha'],
-            "url" => $data['url']
+            "url" => $data['url'],
+            "nombre_imagen" => $data['nombre_imagen']
         ]);
         return $new;
     }
 
     static public function UpdateNoticia($id, array $data)
     {
-        $user = Noticias::find($id);
-        if (!$user) return null;
-        $user->titulo = $data['titulo'];
-        $user->descripcion = $data['descripcion'];
-        $user->fecha = $data['fecha'];
-        $user->url = $data['url'];
-        $user->save();
-        return $user;
+        $noticia = Noticias::find($id);
+        if (!$noticia) return null;
+        $noticia->titulo = $data['titulo'];
+        $noticia->descripcion = $data['descripcion'];
+        $noticia->fecha = $data['fecha'];
+        $noticia->url = $data['url'];
+        $noticia->nombre_imagen = $data['nombre_imagen'] ;
+        $noticia->save();
+        return $noticia;
     }
 
     static public function DeleteNoticia($id)
     {
-        $user = Noticias::find($id);
-        if (!$user) return null;
-        $user->delete();
-        return $user;
+        $noticia = Noticias::find($id);
+        if (!$noticia) return null;
+        try {
+            Storage::disk('public')->delete($noticia->nombre_imagen);
+            $noticia->delete();
+        } catch (\Throwable $th) {
+            return null;
+        }
+        return $noticia;
     }
 
     static public function GetNoticiasPaginate($attribute, $order = "desc", $paginate)

@@ -33,7 +33,7 @@
 
     <form class="grid grid-cols-2 gap-3">
         <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900 ">Nombre</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900 ">Nombre*</label>
             <input type="text" wire:model.defer="name""
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder="Escriba el nombre" required>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="mb-6 col-span-4">
-            <label class="block mb-2 text-sm font-medium text-gray-900 ">Permisos</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900 ">Permisos*</label>
             <div class="grid grid-cols-4">
                 @foreach ($permisos as $key => $permiso)
                     <div class="flex items-center mb-4">

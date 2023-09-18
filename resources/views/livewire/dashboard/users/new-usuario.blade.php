@@ -32,28 +32,28 @@
 
     <form class="grid grid-cols-2 gap-3" name="formulario">
         <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900">Nombre Completo</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900">Nombre Completo*</label>
             <input type="text" wire:model.defer="userArray.name" id="nombre" name="nombre"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 placeholder="Escriba su nombre" required>
             <x-input-error for="userArray.name" />
         </div>
         <div class="mb-6">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Correo</label>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Correo*</label>
             <input type="email" wire:model.defer="userArray.email" id="email" name="email"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 placeholder="Escriba su correo" required>
             <x-input-error for="userArray.email" />
         </div>
         <div class="mb-6">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña</label>
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña*</label>
             <input type="password" placeholder="Escriba su contraseña" id="password" name="password"
                 wire:model.defer="userArray.password" required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
             <x-input-error for="userArray.password" />
         </div>
         <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900">Selecciona un rol</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900">Selecciona un rol*</label>
             <select wire:model.defer="userArray.rol" id="rol" name="rol"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                 <option selected>Selecciona un rol</option>

@@ -50,4 +50,26 @@
             </div>
         </div>
     </div>
+
+    {{-- TRAMITES --}}
+    <div class="relative w-full px-4 py-4 mx-auto  bg-white rounded-lg shadow ">
+
+        <div class="flex items-center justify-between mb-4">
+            <p class="text-2xl font-bold text-gray-800 uppercase">
+                Tramites
+            </p>
+            <a class="text-sm text-gray-700 hover:underline" href="{{ route('tramites') }}">
+                Ver todas
+            </a>
+        </div>
+        <div class="flex flex-wrap -mx-4">
+            @foreach ($tramites as $tramite)
+                <div class="w-full px-4 mb-4 lg:w-1/2">
+                    <x-shared.card-tramite :url="$tramite->url_imagen" :date="$tramite->fecha" :title="$tramite->titulo" :content="$tramite->descripcion"
+                        :downloadCarta="$tramite->url_carta" />
+                </div>
+            @endforeach
+        </div>
+
+    </div>
 </x-app-layout>

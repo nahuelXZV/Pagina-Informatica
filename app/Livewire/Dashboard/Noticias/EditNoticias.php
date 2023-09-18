@@ -4,6 +4,7 @@ namespace App\Livewire\Dashboard\Noticias;
 
 use App\Models\Noticias;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -24,6 +25,7 @@ class EditNoticias extends Component
             'titulo' => $this->noticia->titulo,
             'descripcion' => $this->noticia->descripcion,
             'url' => $this->noticia->url,
+            'nombre_imagen' => $this->noticia->nombre_imagen,
             'fecha' => $this->noticia->fecha,
             'imagen' => '',
         ];
@@ -31,8 +33,12 @@ class EditNoticias extends Component
 
     public function save()
     {
-        $this->validate(Noticias::$validate, Noticias::$messages);
-        $this->saveFile($this->noticiaArray['imagen']);
+        $validate = Noticias::$validate;
+        if (!$this->noticiaArray['imagen'])
+            unset($validate['noticiaArray.imagen']);
+        $this->validate($validate, Noticias::$messages);
+        if ($this->noticiaArray['imagen'])
+            $this->saveFile($this->noticiaArray['imagen']);
         $this->convertirFechaALiteral($this->noticiaArray['fecha']);
         $new = Noticias::UpdateNoticia($this->noticia->id, $this->noticiaArray);
         if (!$new) {
@@ -67,8 +73,17 @@ class EditNoticias extends Component
 
     private function saveFile($file)
     {
-        $url = Request::getScheme() . '://' . Request::getHost();
-        $this->noticiaArray['url'] =  $url . '/storage/' . $file->store('public/noticias', 'public');
+        try {
+            Storage::disk('public')->delete($this->noticia->nombre_imagen);
+            $url = Request::getScheme() . '://' . Request::getHost();
+            $nombre_imagen = $file->store('public/noticias', 'public');
+            $this->noticiaArray['url'] =  $url . '/storage/' .  $nombre_imagen;
+            $this->noticiaArray['nombre_imagen'] = $nombre_imagen;
+        } catch (\Throwable $th) {
+            $this->message = 'Error al actualizar la noticia';
+            $this->type = 'error';
+            $this->notificacion = true;
+        }
     }
 
     public function render()

@@ -24,6 +24,7 @@ class NewNoticias extends Component
             'url' => 1,
             'fecha' => date('Y-m-d'),
             'imagen' => '',
+            'nombre_imagen' => ''
         ];
     }
 
@@ -34,7 +35,7 @@ class NewNoticias extends Component
         $this->convertirFechaALiteral($this->noticiaArray['fecha']);
         $new = Noticias::CreateNoticia($this->noticiaArray);
         if (!$new) {
-            $this->message = 'Error al crear el usuario';
+            $this->message = 'Error al crear la noticia';
             $this->type = 'error';
             $this->notificacion = true;
         }
@@ -66,7 +67,9 @@ class NewNoticias extends Component
     private function saveFile($file)
     {
         $url = Request::getScheme() . '://' . Request::getHost();
-        $this->noticiaArray['url'] =  $url . '/storage/' . $file->store('public/noticias', 'public');
+        $nombre_imagen = $file->store('public/noticias', 'public');
+        $this->noticiaArray['url'] =  $url . '/storage/' .  $nombre_imagen;
+        $this->noticiaArray['nombre_imagen'] = $nombre_imagen;
     }
 
     public function render()
