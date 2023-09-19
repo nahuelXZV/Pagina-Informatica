@@ -83,7 +83,7 @@
                                         role="menuitem">Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('profile.show') }}"
+                                    <a href="{{ route('profile') }}"
                                         class="block px-4 py-2  text-gray-700 hover:bg-gray-100"
                                         role="menuitem">Perfil</a>
                                 </li>
@@ -173,7 +173,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('pagina.edit') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg group hover:bg-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                             class="w-6 h-6">

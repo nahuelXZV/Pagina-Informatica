@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Pagina;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
@@ -24,6 +25,20 @@ class DatabaseSeeder extends Seeder
             'email' => 'example@live.com',
             'password' => bcrypt('12345678'),
         ])->assignRole('Administrador');
+
+        Pagina::create([
+            'telefono' => '',
+            'correo' => '',
+            'direccion' => '',
+            'url_facebook' => '',
+            'url_whatsapp' => '',
+            'url_imagen_principal' => '',
+            'url_calendario_academico' => '',
+            'url_plan_estudio' => '',
+            'nombre_imagen' => '',
+            'nombre_calendario' => '',
+            'nombre_plan_estudio' => '',
+        ]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

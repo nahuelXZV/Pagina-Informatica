@@ -30,7 +30,7 @@
 
     {{-- BACKGROUND --}}
     @if ($type == 'nav-back')
-        <x-layout.background />
+        <x-layout.background :url_imagen="$pagina->url_imagen_principal" />
     @endif
 
     {{-- CONTENT --}}
@@ -39,7 +39,7 @@
     </div>
 
     {{-- FOOTER --}}
-    <x-layout.footer />
+    <x-layout.footer :tel="$pagina->telefono" :dir="$pagina->direccion" :correo="$pagina->correo" :face="$pagina->url_facebook" :whatsapp="$pagina->url_whatsapp" />
 
     {{-- Scripts --}}
     @stack('modals')

@@ -24,12 +24,12 @@
         <div class="max-w-screen-xl py-4 mx-auto">
             <div class="flex items-center justify-between mb-4">
                 <p class="text-2xl font-bold text-gray-800 uppercase">
-                    Calendario Academico 2021
+                    Calendario Academico
                 </p>
             </div>
             <div class="flex bg-white border border-gray-200 rounded-lg shadow justify-center ">
                 <img class="rounded-t-lg"
-                    src="https://www.usergioarboleda.edu.co/barranquilla/wp-content/uploads/2015/07/calendario-academico-2021-01-universidad-sergio-arboleda-barranquilla.jpg"
+                    src="{{$pagina->url_calendario_academico}}"
                     alt="" />
             </div>
         </div>
@@ -44,9 +44,7 @@
                 </p>
             </div>
             <div class="flex bg-white border border-gray-200 rounded-lg shadow justify-center">
-                <img class="rounded-t-lg"
-                    src="https://udlondres.com/wp-content/uploads/2020/11/DISENO-MAPA-CURRICULAR-C22-714x1024.png"
-                    alt="" />
+                <img class="rounded-t-lg" src="{{ $pagina->url_plan_estudio }}" alt="" />
             </div>
         </div>
     </div>

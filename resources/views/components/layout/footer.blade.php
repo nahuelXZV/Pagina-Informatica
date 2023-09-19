@@ -1,3 +1,5 @@
+@props(['tel' => '', 'dir' => '', 'correo' => '', 'face' => '', 'whatsapp'])
+
 <footer class="shadow bg-[#00346f] ">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
@@ -12,24 +14,25 @@
                         <p href="#" class="text-lg mb-2 font-bold text-white mr-4 md:mr-6">Contacto</p>
                     </li>
                     <li>
-                        <p href="#" class="mr-4 md:mr-6">Tel: xxxxxxxx </p>
+                        <p href="#" class="mr-4 md:mr-6">Tel: {{ $tel }} </p>
                     </li>
                     <li>
-                        <p href="#" class="mr-4 md:mr-6">Dir: xxxxxxxx </p>
+                        <p href="#" class="mr-4 md:mr-6">Dir: {{ $dir }} </p>
                     </li>
                     <li>
-                        <p href="#" class="mr-4 md:mr-6">Correo: xxxxxxxx </p>
+                        <p href="#" class="mr-4 md:mr-6">Correo: {{ $correo }} </p>
                     </li>
                 </ul>
                 <a href="{{ route('welcome') }}"class=" justify-center mb-4 sm:mb-0 hidden md:block">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Escudo_FICCT.png/640px-Escudo_FICCT.png"
-                        class="h-20 pr-2" alt="Flowbite Logo" />
+                        class="h-20 pr-2" alt="FICCT Logo" />
                 </a>
                 <div>
                     <p class="text-lg mb-2 font-bold text-white mr-4 md:mr-6 ">Redes Sociales</p>
                     <ul class="flex flex-row items-center text-sm font-medium text-white sm:mb-0">
                         <li>
-                            <a href="#" class="mr-4 hover:underline md:mr-6 text-white ">
+                            <a href="{{ $face }}" class="mr-4 hover:underline md:mr-6 text-white "
+                                target="_blank">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40"
                                     class="text-white" height="40" viewBox="0 0 64 64">
                                     <path fill="white"
@@ -39,7 +42,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="mr-4 hover:underline md:mr-6 text-white ">
+                            <a href="{{ 'https://api.whatsapp.com/send?phone=' . $whatsapp }}" target="_blank"
+                                class="mr-4 hover:underline md:mr-6 text-white ">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40"
                                     class="text-white" height="40" viewBox="0 0 64 64">
                                     <path fill="white"

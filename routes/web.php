@@ -6,6 +6,8 @@ use App\Livewire\Dashboard;
 use App\Livewire\Dashboard\Noticias\EditNoticias;
 use App\Livewire\Dashboard\Noticias\ListNoticias;
 use App\Livewire\Dashboard\Noticias\NewNoticias;
+use App\Livewire\Dashboard\Pagina\EditPagina;
+use App\Livewire\Dashboard\Perfil\Show;
 use App\Livewire\Dashboard\Rol\EditRol;
 use App\Livewire\Dashboard\Rol\ListRol;
 use App\Livewire\Dashboard\Rol\NewRol;
@@ -62,5 +64,12 @@ Route::middleware([
         Route::get('/list', ListTramite::class)->name('tramite.list');
         Route::get('/new', NewTramite::class)->name('tramite.new');
         Route::get('/edit/{tramite}', EditTramite::class)->name('tramite.edit');
+    });
+
+    Route::group(['prefix' => 'pagina'], function () {
+        Route::get('/edit', EditPagina::class)->name('pagina.edit');
+    });
+    Route::group(['prefix' => 'perfil'], function () {
+        Route::get('/show', Show::class)->name('profile');
     });
 });

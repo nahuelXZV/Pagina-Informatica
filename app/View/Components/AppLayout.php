@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Pagina;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
@@ -22,6 +23,7 @@ class AppLayout extends Component
     {
         return view('layouts.app', [
             'type' => $this->type,
+            'pagina' => Pagina::find(1)
         ]);
     }
 }
