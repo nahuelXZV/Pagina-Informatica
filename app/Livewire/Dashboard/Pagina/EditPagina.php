@@ -57,8 +57,11 @@ class EditPagina extends Component
             $this->message = 'Error al actualizar la pagina';
             $this->type = 'error';
             $this->notificacion = true;
+            return;
         }
-        return redirect()->route('pagina.edit');
+        $this->message = 'Actualizado correctamente';
+        $this->type = 'success';
+        $this->notificacion = true;
     }
 
 

@@ -34,7 +34,7 @@
     @endif
 
     {{-- CONTENT --}}
-    <div class="flex flex-col items-center justify-center w-full mt-10 px-10">
+    <div class="flex flex-col items-center justify-center w-full mt-10 px-3 md:px-28">
         {{ $slot }}
     </div>
 

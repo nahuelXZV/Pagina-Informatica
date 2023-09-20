@@ -21,28 +21,29 @@
 
     {{-- CALENDARIO ACADEMICO  --}}
     <div class="relative w-full px-4 py-4 mx-auto  bg-white rounded-lg shadow ">
-        <div class="max-w-screen-xl py-4 mx-auto">
-            <div class="flex items-center justify-between mb-4">
-                <p class="text-2xl font-bold text-gray-800 uppercase">
-                    Calendario Academico
-                </p>
-            </div>
+        <div class="flex items-center justify-between mb-4">
+            <p class="text-2xl font-bold text-gray-800 uppercase">
+                Calendario Academico
+            </p>
+        </div>
+        <div class="max-w-screen-xl py-4 ">
             <div class="flex bg-white border border-gray-200 rounded-lg shadow justify-center ">
-                <img class="rounded-t-lg"
-                    src="{{$pagina->url_calendario_academico}}"
-                    alt="" />
+                <img class="rounded-t-lg" src="{{ $pagina->url_calendario_academico }}" alt="" />
             </div>
         </div>
     </div>
 
     {{-- PLAN DE ESTUDIO  --}}
     <div class="relative w-full px-4 py-4 mx-auto  bg-white rounded-lg shadow ">
-        <div class="max-w-screen-xl py-4 mx-auto">
-            <div class="flex items-center justify-between mb-4">
-                <p class="text-2xl font-bold text-gray-800 uppercase">
-                    Plan de Estudio
-                </p>
-            </div>
+        <div class="flex items-center justify-between mb-4">
+            <p class="text-2xl font-bold text-gray-800 uppercase">
+                Plan de estudio
+            </p>
+            <a class="text-sm text-gray-700 hover:underline" href="{{ route('plan_estudio') }}">
+                Ver Detalles
+            </a>
+        </div>
+        <div class="max-w-screen-xl py-4 ">
             <div class="flex bg-white border border-gray-200 rounded-lg shadow justify-center">
                 <img class="rounded-t-lg" src="{{ $pagina->url_plan_estudio }}" alt="" />
             </div>

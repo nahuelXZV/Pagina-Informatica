@@ -34,6 +34,7 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/acerca', [PageController::class, 'acerca'])->name('acerca');
 Route::get('/noticias', [PageController::class, 'noticias'])->name('noticias');
 Route::get('/tramites', [PageController::class, 'tramites'])->name('tramites');
+Route::get('/plan_estudio', [PageController::class, 'plan_estudio'])->name('plan_estudio');
 
 Route::middleware([
     'auth:sanctum',
