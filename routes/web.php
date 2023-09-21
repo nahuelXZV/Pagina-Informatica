@@ -6,6 +6,7 @@ use App\Livewire\Dashboard;
 use App\Livewire\Dashboard\Noticias\EditNoticias;
 use App\Livewire\Dashboard\Noticias\ListNoticias;
 use App\Livewire\Dashboard\Noticias\NewNoticias;
+use App\Livewire\Dashboard\Noticias\ShowNoticia;
 use App\Livewire\Dashboard\Pagina\EditPagina;
 use App\Livewire\Dashboard\Perfil\Show;
 use App\Livewire\Dashboard\Rol\EditRol;
@@ -33,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/acerca', [PageController::class, 'acerca'])->name('acerca');
 Route::get('/noticias', [PageController::class, 'noticias'])->name('noticias');
+Route::get('/noticias/{slug}', ShowNoticia::class)->name('noticias.show');
 Route::get('/tramites', [PageController::class, 'tramites'])->name('tramites');
 Route::get('/plan_estudio', [PageController::class, 'plan_estudio'])->name('plan_estudio');
 

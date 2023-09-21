@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('fotos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('url');
+            $table->string('foto');
+            $table->unsignedBigInteger('noticia_id');
+            $table->foreign('noticia_id')->references('id')->on('noticias');
             $table->timestamps();
         });
     }

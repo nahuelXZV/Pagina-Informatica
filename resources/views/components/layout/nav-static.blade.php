@@ -29,6 +29,11 @@
                             aria-current="page">ACERCA NOSOTROS</a>
                     </li>
                     <li>
+                        <a href="{{ route('plan_estudio') }}"
+                            class="block py-1 pl-3 pr-4 text-white rounded  md:p-0 md:px-2 hover:underline "
+                            aria-current="page">PLAN ESTUDIO</a>
+                    </li>
+                    <li>
                         <a href="{{ route('noticias') }}"
                             class="block py-1 pl-3 pr-4 text-white rounded  md:p-0 md:px-2 hover:underline "
                             aria-current="page">NOTICIAS</a>

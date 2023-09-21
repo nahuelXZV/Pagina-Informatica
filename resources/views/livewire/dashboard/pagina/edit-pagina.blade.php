@@ -83,7 +83,7 @@
                                 <img src="{{ $paginaArray['imagen']->temporaryUrl() }}" alt="imagen"
                                     class="w-full h-min">
                             @else
-                                <img src="{{ $paginaArray['url_imagen_principal'] }}" alt="imagen"
+                                <img src="{{ asset('storage/' . $paginaArray['imagen_principal']) }}" alt="imagen"
                                     class="w-full h-min">
                             @endif
                         </div>
@@ -108,7 +108,7 @@
                                 <img src="{{ $paginaArray['calendario']->temporaryUrl() }}" alt="imagen"
                                     class="w-full h-min">
                             @else
-                                <img src="{{ $paginaArray['url_calendario_academico'] }}" alt="imagen"
+                                <img src="{{ asset('storage/' . $paginaArray['calendario_academico']) }}" alt="imagen"
                                     class="w-full h-min">
                             @endif
                         </div>
@@ -131,22 +131,22 @@
                     </label>
                     <div class="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                         <div class="space-y-1 text-center">
-                            @if ($paginaArray['plan_estudio'])
-                                <img src="{{ $paginaArray['plan_estudio']->temporaryUrl() }}" alt="imagen"
+                            @if ($paginaArray['plan_estudio_file'])
+                                <img src="{{ $paginaArray['plan_estudio_file']->temporaryUrl() }}" alt="imagen"
                                     class="w-full h-min">
                             @else
-                                <img src="{{ $paginaArray['url_plan_estudio'] }}" alt="imagen"
+                                <img src="{{ asset('storage/' . $paginaArray['plan_estudio']) }}" alt="imagen"
                                     class="w-full h-min">
                             @endif
                         </div>
                     </div>
-                    <x-input-error for="paginaArray.plan_estudio" />
+                    <x-input-error for="paginaArray.plan_estudio_file" />
                 </div>
                 <div class="mb-6">
                     <label for="file" class="block mb-2 text-sm font-bold text-gray-900">Plan de estudio
                     </label>
-                    <input type="file" id="plan_estudio" name="plan_estudio"
-                        wire:model.defer="paginaArray.plan_estudio" required wire:loading.attr="disabled"
+                    <input type="file" id="plan_estudio_file" name="plan_estudio_file"
+                        wire:model.defer="paginaArray.plan_estudio_file" required wire:loading.attr="disabled"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                 </div>
             </div>

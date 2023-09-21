@@ -59,7 +59,8 @@
                 @foreach ($tramites as $tramite)
                     <tr class="bg-white border-b  hover:bg-gray-50 ">
                         <td class="px-6 py-4">
-                            <img src="{{ $tramite->url_imagen }}" alt="" class="w-20 h-20">
+                            <img src="{{ asset('storage/' . $tramite->imagen_principal) }}" alt=""
+                                class="w-20 h-20">
                         </td>
                         <td class="px-6 py-4 font-bold">
                             {{ $tramite->titulo }}
@@ -70,13 +71,9 @@
                         <td class="px-6 py-4">
                             {{ $tramite->fecha }}
                         </td>
-                        <td class="px-6 py-4">
-                            <a href="{{ $tramite->url_carta }}" target="_blank">
-                            </a>
-                        </td>
                         <td class="px-6 py-4 flex space-x-1 text-right">
-                            @if ($tramite->url_carta)
-                                <a href="{{ $tramite->url_carta }}" target="_blank"
+                            @if ($tramite->modelo_carta)
+                                <a href="{{ asset('storage/' . $tramite->modelo_carta) }}" target="_blank"
                                     class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     <x-iconos.carta />
                                 </a>

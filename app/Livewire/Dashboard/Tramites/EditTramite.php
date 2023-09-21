@@ -4,6 +4,7 @@ namespace App\Livewire\Dashboard\Tramites;
 
 use App\Models\Tramites;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -28,10 +29,8 @@ class EditTramite extends Component
             'titulo' => $this->tramite->titulo,
             'descripcion' => $this->tramite->descripcion,
             'fecha' => $this->tramite->fecha,
-            'url_imagen' => $this->tramite->url_imagen,
-            'nombre_imagen' => $this->tramite->nombre_imagen,
-            'url_carta' => $this->tramite->url_carta,
-            'nombre_carta' => $this->tramite->nombre_carta,
+            'imagen_principal' => $this->tramite->imagen_principal,
+            'modelo_carta' => $this->tramite->modelo_carta,
             'imagen' => '',
             'carta' => ''
         ];
@@ -81,14 +80,12 @@ class EditTramite extends Component
     private function saveFile($file, $path)
     {
         try {
-            $url = Request::getScheme() . '://' . Request::getHost();
-            $nombre_file = $file->store($path, 'public');
             if ($path == $this->paths[0]) {
-                $this->tramiteArray['url_imagen'] =  $url . '/storage/' .  $nombre_file;
-                $this->tramiteArray['nombre_imagen'] = $nombre_file;
+                Storage::disk('public')->delete($this->tramite->imagen_principal);
+                $this->tramiteArray['imagen_principal'] =   $file->store($path, 'public');
             } else {
-                $this->tramiteArray['url_carta'] =  $url . '/storage/' .  $nombre_file;
-                $this->tramiteArray['nombre_carta'] = $nombre_file;
+                Storage::disk('public')->delete($this->tramite->modelo_carta);
+                $this->tramiteArray['modelo_carta'] = $file->store($path, 'public');
             }
         } catch (\Throwable $th) {
             $this->message = 'Error al actualizar el tramite';

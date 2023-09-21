@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Dashboard\Noticias;
 
+use App\Models\Fotos;
 use App\Models\Noticias;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -20,11 +20,13 @@ class NewNoticias extends Component
     {
         $this->noticiaArray = [
             'titulo' => '',
+            'slug' => '',
             'descripcion' => '',
-            'url' => 1,
             'fecha' => date('Y-m-d'),
+            'imagen_principal' => '',
+            'contenido' => '',
             'imagen' => '',
-            'nombre_imagen' => ''
+            'fotos' => ''
         ];
     }
 
@@ -34,6 +36,7 @@ class NewNoticias extends Component
         $this->saveFile($this->noticiaArray['imagen']);
         $this->convertirFechaALiteral($this->noticiaArray['fecha']);
         $new = Noticias::CreateNoticia($this->noticiaArray);
+        $this->saveFiles($new);
         if (!$new) {
             $this->message = 'Error al crear la noticia';
             $this->type = 'error';
@@ -66,10 +69,19 @@ class NewNoticias extends Component
 
     private function saveFile($file)
     {
-        $url = Request::getScheme() . '://' . Request::getHost();
-        $nombre_imagen = $file->store('public/noticias', 'public');
-        $this->noticiaArray['url'] =  $url . '/storage/' .  $nombre_imagen;
-        $this->noticiaArray['nombre_imagen'] = $nombre_imagen;
+        $this->noticiaArray['imagen_principal'] =  $file->store('public/noticias', 'public');
+    }
+
+    private function saveFiles($noticia)
+    {
+        foreach ($this->noticiaArray['fotos'] as $key => $value) {
+            $nombre_imagen = $value->store('public/noticias', 'public');
+            Fotos::SaveFoto([
+                'nombre' => $value->getClientOriginalName(),
+                'foto' => $nombre_imagen,
+                'noticia_id' => $noticia->id
+            ]);
+        }
     }
 
     public function render()

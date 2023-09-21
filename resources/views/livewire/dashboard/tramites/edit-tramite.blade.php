@@ -40,7 +40,8 @@
                             <img src="{{ $tramiteArray['imagen']->temporaryUrl() }}" alt="imagen"
                                 class="w-full h-min">
                         @else
-                            <img src="{{ $tramiteArray['url_imagen'] }}" alt="imagen" class="w-full h-min">
+                            <img src="{{ asset('storage/' . $tramiteArray['imagen_principal']) }}" alt="imagen"
+                                class="w-full h-min">
                         @endif
                     </div>
                 </div>

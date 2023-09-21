@@ -28,10 +28,8 @@ class NewTramite extends Component
             'fecha' => date('Y-m-d'),
             'imagen' => '',
             'carta' => '',
-            'url_imagen' => '',
-            'nombre_imagen' => '',
-            'url_carta' => '',
-            'nombre_carta' => '',
+            'imagen_principal' => '',
+            'modelo_carta' => '',
         ];
     }
 
@@ -75,14 +73,10 @@ class NewTramite extends Component
 
     private function saveFile($file, $path)
     {
-        $url = Request::getScheme() . '://' . Request::getHost();
-        $nombre_file = $file->store($path, 'public');
         if ($path == $this->paths[0]) {
-            $this->tramiteArray['url_imagen'] =  $url . '/storage/' .  $nombre_file;
-            $this->tramiteArray['nombre_imagen'] = $nombre_file;
+            $this->tramiteArray['imagen_principal'] =   $file->store($path, 'public');
         } else {
-            $this->tramiteArray['url_carta'] =  $url . '/storage/' .  $nombre_file;
-            $this->tramiteArray['nombre_carta'] = $nombre_file;
+            $this->tramiteArray['modelo_carta'] = $file->store($path, 'public');
         }
     }
 

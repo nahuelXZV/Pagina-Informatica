@@ -30,7 +30,7 @@
 
     {{-- BACKGROUND --}}
     @if ($type == 'nav-back')
-        <x-layout.background :url_imagen="$pagina->url_imagen_principal" />
+        <x-layout.background :url_imagen="$pagina->imagen_principal" />
     @endif
 
     {{-- CONTENT --}}

@@ -12,7 +12,8 @@
         </div>
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
             @foreach ($noticias as $noticia)
-                <x-shared.card-noticias :url="$noticia->url" :date="$noticia->fecha" :title="$noticia->titulo" :content="$noticia->descripcion" />
+                <x-shared.card-noticias :url="$noticia->imagen_principal" :date="$noticia->fecha" :title="$noticia->titulo" :content="$noticia->descripcion"
+                    :slug="$noticia->slug" />
             @endforeach
 
         </div>
@@ -28,7 +29,8 @@
         </div>
         <div class="max-w-screen-xl py-4 ">
             <div class="flex bg-white border border-gray-200 rounded-lg shadow justify-center ">
-                <img class="rounded-t-lg" src="{{ $pagina->url_calendario_academico }}" alt="" />
+                <img class="rounded-t-lg" src="{{ asset('storage/' . $pagina->calendario_academico) }}"
+                    alt="" />
             </div>
         </div>
     </div>
@@ -45,7 +47,7 @@
         </div>
         <div class="max-w-screen-xl py-4 ">
             <div class="flex bg-white border border-gray-200 rounded-lg shadow justify-center">
-                <img class="rounded-t-lg" src="{{ $pagina->url_plan_estudio }}" alt="" />
+                <img class="rounded-t-lg" src="{{ asset('storage/' . $pagina->plan_estudio) }}" alt="" />
             </div>
         </div>
     </div>
@@ -64,8 +66,8 @@
         <div class="flex flex-wrap -mx-4">
             @foreach ($tramites as $tramite)
                 <div class="w-full px-4 mb-4 lg:w-1/2">
-                    <x-shared.card-tramite :url="$tramite->url_imagen" :date="$tramite->fecha" :title="$tramite->titulo" :content="$tramite->descripcion"
-                        :downloadCarta="$tramite->url_carta" />
+                    <x-shared.card-tramite :url="$tramite->imagen_principal" :date="$tramite->fecha" :title="$tramite->titulo" :content="$tramite->descripcion"
+                        :downloadCarta="$tramite->modelo_carta" />
                 </div>
             @endforeach
         </div>

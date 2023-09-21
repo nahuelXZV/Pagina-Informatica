@@ -32,12 +32,9 @@ class DatabaseSeeder extends Seeder
             'direccion' => '',
             'url_facebook' => '',
             'url_whatsapp' => '',
-            'url_imagen_principal' => '',
-            'url_calendario_academico' => '',
-            'url_plan_estudio' => '',
-            'nombre_imagen' => '',
-            'nombre_calendario' => '',
-            'nombre_plan_estudio' => '',
+            'imagen_principal' => '',
+            'calendario_academico' => '',
+            'plan_estudio' => '',
         ]);
 
         // \App\Models\User::factory()->create([

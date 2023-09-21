@@ -13,17 +13,14 @@ return new class extends Migration
     {
         Schema::create('paginas', function (Blueprint $table) {
             $table->id();
-            $table->string('url_imagen_principal');
-            $table->string('url_calendario_academico');
-            $table->string('url_plan_estudio');
+            $table->string('imagen_principal');
+            $table->string('calendario_academico');
+            $table->string('plan_estudio');
             $table->string('url_facebook')->nullable();
             $table->string('url_whatsapp')->nullable();
             $table->string('telefono')->nullable();
             $table->string('correo')->nullable();
             $table->string('direccion')->nullable();
-            $table->string('nombre_imagen')->nullable();
-            $table->string('nombre_calendario')->nullable();
-            $table->string('nombre_plan_estudio')->nullable();
             $table->timestamps();
         });
     }

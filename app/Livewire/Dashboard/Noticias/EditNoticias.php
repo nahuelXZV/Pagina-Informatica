@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Dashboard\Noticias;
 
+use App\Models\Fotos;
 use App\Models\Noticias;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
@@ -17,17 +17,20 @@ class EditNoticias extends Component
     public $message = 'Creado correctamente';
 
     public $noticia;
+    public $fotos = [];
 
     public function mount($noticia)
     {
         $this->noticia = Noticias::find($noticia);
+        $this->fotos = Fotos::GetFotosByNoticia($this->noticia->id);
         $this->noticiaArray = [
             'titulo' => $this->noticia->titulo,
             'descripcion' => $this->noticia->descripcion,
-            'url' => $this->noticia->url,
-            'nombre_imagen' => $this->noticia->nombre_imagen,
+            'imagen_principal' => $this->noticia->imagen_principal,
             'fecha' => $this->noticia->fecha,
+            'contenido' => $this->noticia->contenido,
             'imagen' => '',
+            'fotos' => []
         ];
     }
 
@@ -36,11 +39,14 @@ class EditNoticias extends Component
         $validate = Noticias::$validate;
         if (!$this->noticiaArray['imagen'])
             unset($validate['noticiaArray.imagen']);
+        if ($this->noticia->titulo == $this->noticiaArray['titulo'])
+            unset($validate['noticiaArray.titulo']);
         $this->validate($validate, Noticias::$messages);
         if ($this->noticiaArray['imagen'])
             $this->saveFile($this->noticiaArray['imagen']);
         $this->convertirFechaALiteral($this->noticiaArray['fecha']);
         $new = Noticias::UpdateNoticia($this->noticia->id, $this->noticiaArray);
+        $this->saveFiles($this->noticia);
         if (!$new) {
             $this->message = 'Error al actualizar la noticia';
             $this->type = 'error';
@@ -74,11 +80,8 @@ class EditNoticias extends Component
     private function saveFile($file)
     {
         try {
-            Storage::disk('public')->delete($this->noticia->nombre_imagen);
-            $url = Request::getScheme() . '://' . Request::getHost();
-            $nombre_imagen = $file->store('public/noticias', 'public');
-            $this->noticiaArray['url'] =  $url . '/storage/' .  $nombre_imagen;
-            $this->noticiaArray['nombre_imagen'] = $nombre_imagen;
+            Storage::disk('public')->delete($this->noticia->imagen_principal);
+            $this->noticiaArray['imagen_principal'] = $file->store('public/noticias', 'public');
         } catch (\Throwable $th) {
             $this->message = 'Error al actualizar la noticia';
             $this->type = 'error';
@@ -86,8 +89,31 @@ class EditNoticias extends Component
         }
     }
 
+    private function saveFiles($noticia)
+    {
+        foreach ($this->noticiaArray['fotos'] as $key => $value) {
+            $nombre_imagen = $value->store('public/noticias', 'public');
+            Fotos::SaveFoto([
+                'nombre' => $value->getClientOriginalName(),
+                'foto' => $nombre_imagen,
+                'noticia_id' => $noticia->id
+            ]);
+        }
+    }
+
+    public function deleteFoto($id)
+    {
+        $foto = Fotos::DeleteFoto($id);
+        if (!$foto) {
+            $this->message = 'Error al eliminar la foto';
+            $this->type = 'error';
+            $this->notificacion = true;
+        }
+    }
+
     public function render()
     {
+        $this->fotos = Fotos::GetFotosByNoticia($this->noticia->id);
         return view('livewire.dashboard.noticias.edit-noticias')->layout('layouts.dashboard');
     }
 }

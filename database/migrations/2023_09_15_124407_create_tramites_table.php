@@ -16,10 +16,8 @@ return new class extends Migration
             $table->string('titulo', 30);
             $table->string('descripcion', 100);
             $table->string('fecha');
-            $table->string('url_imagen');
-            $table->string('nombre_imagen');
-            $table->string('url_carta')->nullable();
-            $table->string('nombre_carta')->nullable();
+            $table->string('imagen_principal');
+            $table->string('modelo_carta')->nullable();
             $table->timestamps();
         });
     }

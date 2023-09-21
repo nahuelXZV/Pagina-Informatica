@@ -59,7 +59,7 @@
                 @foreach ($noticias as $noticia)
                     <tr class="bg-white border-b  hover:bg-gray-50 ">
                         <td class="px-6 py-4">
-                            <img src="{{ $noticia->url }}" alt="" class="w-20 h-20">
+                            <img src="{{ asset('storage/' . $noticia->imagen_principal) }}" alt="" class="w-20 h-20">
                         </td>
                         <td class="px-6 py-4 font-bold">
                             {{ $noticia->titulo }}

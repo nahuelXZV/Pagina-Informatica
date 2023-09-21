@@ -40,7 +40,8 @@
                             <img src="{{ $noticiaArray['imagen']->temporaryUrl() }}" alt="imagen"
                                 class="w-full h-min">
                         @else
-                            <img src="{{ $noticiaArray['url'] }}" alt="imagen" class="w-full h-min">
+                            <img src="{{ asset('storage/' . $noticiaArray['imagen_principal']) }}" alt="imagen"
+                                class="w-full h-min">
                         @endif
                     </div>
                 </div>
@@ -69,6 +70,52 @@
                     placeholder="Escriba la descripcion" required></textarea>
                 <x-input-error for="noticiaArray.descripcion" />
             </div>
+            <div class="mb-6 h-min">
+                <label class="block mb-2 text-sm font-bold text-gray-900">Contenido</label>
+                <textarea wire:model.defer="noticiaArray.contenido" id="contenido" name="contenido"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    placeholder="Escriba la contenido"></textarea>
+                <x-input-error for="noticiaArray.contenido" />
+            </div>
+        </div>
+        {{-- contenido --}}
+        <div class="md:col-span-2 mt-2 flex flex-col px-3 bg-white border py-5 rounded-lg mx-1">
+            <p class="mb-6">
+                <label class="block mb-2 text-sm font-bold text-gray-900">Galeria de imagenes</label>
+                <input type="file" wire:model="noticiaArray.fotos" multiple id="fotos" name="fotos" accept="image/*"
+                    max="5"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+            </p>
+
+            <table class="table-auto w-full">
+                <thead class="bg-gray-50">
+                    <tr class="text-xs font-medium text-left text-gray-500 uppercase">
+                        <th class="px-4 py-2">Foto</th>
+                        <th class="px-4 py-2">Nombre</th>
+                        <th class="px-4 py-2">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($fotos as $file)
+                        <tr>
+                            <td class=" px-4 py-2">
+                                <img src="{{ asset('storage/' . $file->foto) }}" alt="{{ $file->nombre }}"
+                                    class="w-20 h-20">
+                            </td>
+                            <td class=" px-4 py-2">{{ $file->nombre }}</td>
+                            <td class=" px-4 py-2">
+                                <button wire:click="deleteFoto({{ $file->id }})" wire:loading.attr="disabled" type="button"
+                                    class="inline-flex items-center justify-center h-9 px-4 ml-5 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+
+
         </div>
     </form>
 </div>

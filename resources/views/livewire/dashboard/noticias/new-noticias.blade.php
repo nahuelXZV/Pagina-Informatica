@@ -47,7 +47,7 @@
                 <x-input-error for="noticiaArray.imagen" />
             </div>
             <div class="mb-6">
-                <label for="file" class="block mb-2 text-sm font-bold text-gray-900">Imagen*</label>
+                <label for="file" class="block mb-2 text-sm font-bold text-gray-900">Imagen Principal*</label>
                 <input type="file" id="imagen" name="imagen" wire:model.defer="noticiaArray.imagen" required
                     wire:loading.attr="disabled"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
@@ -56,13 +56,6 @@
 
         <div class="flex flex-col px-3 bg-white border py-5 rounded-lg mx-1">
             <div class="mb-6 h-min">
-                <label class="block mb-2 text-sm font-bold text-gray-900">Titulo*</label>
-                <input type="text" wire:model.defer="noticiaArray.titulo" id="titulo" name="titulo"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="Escriba el titulo" required>
-                <x-input-error for="noticiaArray.titulo" />
-            </div>
-            <div class="mb-6 h-min">
                 <label for="fecha" class="block mb-2 text-sm font-bold text-gray-900">Fecha*</label>
                 <input type="date" wire:model.defer="noticiaArray.fecha" id="date" name="date"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
@@ -70,12 +63,39 @@
                 <x-input-error for="noticiaArray.fecha" />
             </div>
             <div class="mb-6 h-min">
+                <label class="block mb-2 text-sm font-bold text-gray-900">Titulo*</label>
+                <input type="text" wire:model.defer="noticiaArray.titulo" id="titulo" name="titulo"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    placeholder="Escriba el titulo" required>
+                <x-input-error for="noticiaArray.titulo" />
+            </div>
+            <div class="mb-6 h-min">
                 <label class="block mb-2 text-sm font-bold text-gray-900">Descripcion*</label>
-                <textarea wire:model.defer="noticiaArray.descripcion" id="descripcion" name="descripcion"
+                <textarea wire:model.defer="noticiaArray.descripcion" id="descripcion" name="descripcion" maxlength="100"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     placeholder="Escriba la descripcion" required></textarea>
                 <x-input-error for="noticiaArray.descripcion" />
             </div>
+            <div class="mb-6">
+                <label for="file" class="block mb-2 text-sm font-bold text-gray-900">Fotos
+                    <span class="text-xs text-gray-500 font-normal ml-2">Max: 5</span>
+                </label>
+                <input type="file" id="fotos" name="fotos" wire:model.defer="noticiaArray.fotos" multiple
+                    max="5" wire:loading.attr="disabled" accept="image/*"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+            </div>
         </div>
+
+        {{-- contenido --}}
+        <div class="md:col-span-2 mt-2 flex flex-col px-3 bg-white border py-5 rounded-lg mx-1">
+            <div class="mb-6 h-min">
+                <label class="block mb-2 text-sm font-bold text-gray-900">Contenido (Opcional)</label>
+                <textarea wire:model.defer="noticiaArray.contenido" id="contenido" name="contenido"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    placeholder="Escriba el contenido"></textarea>
+                <x-input-error for="noticiaArray.contenido" />
+            </div>
+        </div>
+
     </form>
 </div>

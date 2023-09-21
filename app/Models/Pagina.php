@@ -10,9 +10,9 @@ class Pagina extends Model
     use HasFactory;
 
     protected $fillable = [
-        "url_imagen_principal",
-        "url_calendario_academico",
-        "url_plan_estudio",
+        "imagen_principal",
+        "calendario_academico",
+        "plan_estudio",
         "url_facebook",
         "url_whatsapp",
         "telefono",
@@ -29,7 +29,7 @@ class Pagina extends Model
         'paginaArray.direccion' => 'required',
         'paginaArray.imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'paginaArray.calendario' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'paginaArray.plan_estudio' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'paginaArray.plan_estudio_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
     static public $messages = [
         'paginaArray.url_facebook.required' => 'El campo facebook es obligatorio',
@@ -45,10 +45,10 @@ class Pagina extends Model
         'paginaArray.calendario.image' => 'El campo calendario debe ser una imagen',
         'paginaArray.calendario.mimes' => 'El campo calendario debe ser una imagen de tipo: jpeg, png, jpg, gif, svg',
         'paginaArray.calendario.max' => 'El campo calendario debe ser una imagen de maximo 2048 kilobytes',
-        'paginaArray.plan_estudio.required' => 'El campo plan_estudio es obligatorio',
-        'paginaArray.plan_estudio.image' => 'El campo plan_estudio debe ser una imagen',
-        'paginaArray.plan_estudio.mimes' => 'El campo plan_estudio debe ser una imagen de tipo: jpeg, png, jpg, gif, svg',
-        'paginaArray.plan_estudio.max' => 'El campo plan_estudio debe ser una imagen de maximo 2048 kilobytes',
+        'paginaArray.plan_estudio_file.required' => 'El campo plan_estudio es obligatorio',
+        'paginaArray.plan_estudio_file.image' => 'El campo plan_estudio debe ser una imagen',
+        'paginaArray.plan_estudio_file.mimes' => 'El campo plan_estudio debe ser una imagen de tipo: jpeg, png, jpg, gif, svg',
+        'paginaArray.plan_estudio_file.max' => 'El campo plan_estudio debe ser una imagen de maximo 2048 kilobytes',
     ];
 
     // Funciones
@@ -61,9 +61,9 @@ class Pagina extends Model
         $pagina->telefono = $data['telefono'];
         $pagina->correo = $data['correo'];
         $pagina->direccion = $data['direccion'];
-        $pagina->url_calendario_academico = $data['url_calendario_academico'];
-        $pagina->url_plan_estudio = $data['url_plan_estudio'];
-        $pagina->url_imagen_principal = $data['url_imagen_principal'];
+        $pagina->calendario_academico = $data['calendario_academico'];
+        $pagina->plan_estudio = $data['plan_estudio'];
+        $pagina->imagen_principal = $data['imagen_principal'];
         $pagina->save();
         return $pagina;
     }
