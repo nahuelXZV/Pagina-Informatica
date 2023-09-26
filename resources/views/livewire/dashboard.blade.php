@@ -5,5 +5,12 @@
             <h1 class="text-3xl mb-2 uppercase font-bold text-gray-700">Bienvenido, {{ auth()->user()->name }}</h1>
             <p class="text-gray-500">Seleccione una opción del menú lateral</p>
         </div>
+        {{-- ir a la pagina --}}
+        <div class="flex flex-col items-center justify-center mt-10">
+            <a href="{{ route('welcome') }}"
+                class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full">
+                Ir a la página
+            </a>
+        </div>
     </div>
 </div>

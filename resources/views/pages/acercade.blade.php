@@ -168,8 +168,7 @@
 
                     <div class="flex items-center space-x-4">
                         <div class="flex-shrink-0">
-                            <img class="w-12 h-12 rounded-full"
-                                src="https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg"
+                            <img class="w-12 h-12 rounded-full" src="{{ asset('img/autoridades/director.jpg') }}"
                                 alt="Director de carrera">
                         </div>
                         <div class="flex-1 min-w-0">
@@ -184,8 +183,7 @@
 
                     <div class="flex items-center space-x-4">
                         <div class="flex-shrink-0">
-                            <img class="w-12 h-12 rounded-full"
-                                src="https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg"
+                            <img class="w-12 h-12 rounded-full" src="{{ asset('img/autoridades/decano.jpg') }}"
                                 alt="Decano">
                         </div>
                         <div class="flex-1 min-w-0">
@@ -200,8 +198,7 @@
 
                     <div class="flex items-center space-x-4">
                         <div class="flex-shrink-0">
-                            <img class="w-12 h-12 rounded-full"
-                                src="https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg"
+                            <img class="w-12 h-12 rounded-full" src="{{ asset('img/autoridades/vicedecano.jpg') }}"
                                 alt="Vice Decano">
                         </div>
                         <div class="flex-1 min-w-0">
