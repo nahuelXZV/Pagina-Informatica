@@ -46,30 +46,30 @@ Route::middleware([
 
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
-    Route::group(['prefix' => 'usuario'], function () {
+    Route::group(['prefix' => 'usuario', 'middleware' => ['can:usuarios', 'auth']], function () {
         Route::get('/list', ListUsuario::class)->name('usuario.list');
         Route::get('/new', NewUsuario::class)->name('usuario.new');
     });
 
-    Route::group(['prefix' => 'rol'], function () {
+    Route::group(['prefix' => 'rol', 'middleware' => ['can:roles', 'auth']], function () {
         Route::get('/list', ListRol::class)->name('rol.list');
         Route::get('/new', NewRol::class)->name('rol.new');
         Route::get('/edit/{rol}', EditRol::class)->name('rol.edit');
     });
 
-    Route::group(['prefix' => 'noticia'], function () {
+    Route::group(['prefix' => 'noticia', 'middleware' => ['can:noticias', 'auth']], function () {
         Route::get('/list', ListNoticias::class)->name('noticia.list');
         Route::get('/new', NewNoticias::class)->name('noticia.new');
         Route::get('/edit/{noticia}', EditNoticias::class)->name('noticia.edit');
     });
 
-    Route::group(['prefix' => 'tramite'], function () {
+    Route::group(['prefix' => 'tramite', 'middleware' => ['can:tramites', 'auth']], function () {
         Route::get('/list', ListTramite::class)->name('tramite.list');
         Route::get('/new', NewTramite::class)->name('tramite.new');
         Route::get('/edit/{tramite}', EditTramite::class)->name('tramite.edit');
     });
 
-    Route::group(['prefix' => 'pagina'], function () {
+    Route::group(['prefix' => 'pagina', 'middleware' => ['can:pagina', 'auth']], function () {
         Route::get('/edit', EditPagina::class)->name('pagina.edit');
     });
     Route::group(['prefix' => 'perfil'], function () {

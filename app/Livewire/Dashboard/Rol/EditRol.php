@@ -27,7 +27,7 @@ class EditRol extends Component
         $this->name = $this->rol->name;
         $this->arrayPermisos = $this->rol->getAllPermissions()->pluck('id')->toArray();
         foreach ($this->arrayPermisos as $permiso) {
-            $this->permisosSeleccionados[$permiso] = $permiso;
+            $this->permisosSeleccionados[] = $permiso;
         }
     }
 

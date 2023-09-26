@@ -1,5 +1,5 @@
 <div class="container py-2">
-    <div class="flex justify-between items-center mb-7">
+    <div class="flex flex-col md:block md:justify-between items-center mb-7">
         <h1 class="text-3xl font-bold text-gray-700 mb-2">{{ $noticia->titulo }}</h1>
         <p class="text-gray-600 text-sm">{{ $noticia->fecha }}</p>
     </div>

@@ -45,7 +45,7 @@
                 @foreach ($permisos as $key => $permiso)
                     <div class="flex items-center mb-4">
                         <input id="{{ $permiso->name }}" type="checkbox" value="{{ $permiso->id }}"
-                            wire:model.defer='permisosSeleccionados.{{ $key + 1 }}'
+                            wire:model.live='permisosSeleccionados'
                             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 ">
                         <label for="{{ $permiso->name }}"
                             class="ml-2 text-sm font-medium text-gray-900 ">{{ $permiso->description }}</label>

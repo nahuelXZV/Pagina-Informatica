@@ -69,11 +69,13 @@
                                 class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 <x-iconos.edit />
                             </button> --}}
-                            <button type="button" wire:click="delete({{ $user->id }})"
-                                onclick="confirm('¿Está seguro?') || event.stopImmediatePropagation()"
-                                class="text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center ">
-                                <x-iconos.delete />
-                            </button>
+                            @can('eliminar')
+                                <button type="button" wire:click="delete({{ $user->id }})"
+                                    onclick="confirm('¿Está seguro?') || event.stopImmediatePropagation()"
+                                    class="text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center ">
+                                    <x-iconos.delete />
+                                </button>
+                            @endcan
                         </td>
                     </tr>
                 @endforeach

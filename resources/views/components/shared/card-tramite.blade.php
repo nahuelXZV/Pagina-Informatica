@@ -1,6 +1,6 @@
 @props(['url' => 'https://picsum.photos/600/400/?random', 'date' => '25 de diciembre 2023', 'title' => '', 'content' => '', 'downloadCarta'])
 
-<div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row">
+<div class="flex flex-col md:items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row">
     <img class="object-cover w-full px-2 rounded-t-lg h-96 md:h-auto md:w-52 md:rounded-none md:rounded-l-lg"
         src="{{ asset('storage/' . $url) }}" alt="">
     <div class="flex flex-col justify-between p-4 leading-normal">

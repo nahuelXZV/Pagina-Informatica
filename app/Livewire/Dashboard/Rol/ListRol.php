@@ -28,7 +28,8 @@ class ListRol extends Component
 
     public function delete($id)
     {
-        if (Role::DeleteUsuario($id)) {
+        $delete = Role::find($id)->delete();
+        if ($delete) {
             $this->message = 'Eliminado correctamente';
             $this->type = 'success';
         } else {

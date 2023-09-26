@@ -11,7 +11,7 @@
             <div class="flex items-center justify-between space-x-6 w-full">
                 <ul class="flex flex-col text-sm font-medium text-white sm:mb-0">
                     <li>
-                        <p href="#" class="text-lg mb-2 font-bold text-white mr-4 md:mr-6">Contacto</p>
+                        <p href="#" class="text-base mb-2 font-bold text-white mr-4 md:mr-6">Contacto</p>
                     </li>
                     <li>
                         <p href="#" class="mr-4 md:mr-6">Tel: {{ $tel }} </p>
@@ -27,8 +27,8 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Escudo_FICCT.png/640px-Escudo_FICCT.png"
                         class="h-20 pr-2" alt="FICCT Logo" />
                 </a>
-                <div>
-                    <p class="text-lg mb-2 font-bold text-white mr-4 md:mr-6 ">Redes Sociales</p>
+                <div class="flex flex-col text-sm font-medium text-white sm:mb-0">
+                    <p class="text-base mb-2 font-bold text-white ">Redes Sociales</p>
                     <ul class="flex flex-row items-center text-sm font-medium text-white sm:mb-0">
                         <li>
                             <a href="{{ $face }}" class="mr-4 hover:underline md:mr-6 text-white "
