@@ -13,6 +13,6 @@ class ListNoticias extends Component
     public function render()
     {
         $noticias = Noticias::GetNoticiasPaginate("", "desc", 12);
-        return view('livewire.public.list-noticias', compact('noticias'));
+        return view('livewire.public.list-noticias', compact('noticias'))->layout('app');
     }
 }

@@ -5,5 +5,7 @@
                 :downloadCarta="$tramite->modelo_carta" />
         </div>
     @endforeach
-    <x-shared.pagination :modelo='$tramites' />
+    <div class="w-full">
+        <x-shared.pagination :modelo='$tramites' />
+    </div>
 </div>

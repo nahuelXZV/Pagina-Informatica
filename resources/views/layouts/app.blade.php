@@ -16,11 +16,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <script src="{{ asset('livewire/livewire.js') }}"></script>
     <!-- Styles -->
-    @livewireStyles
+    {{-- @livewireStyles --}}
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased flex flex-col min-h-screen">
 
     {{-- NAV --}}
     @if ($type == 'nav-back')
@@ -35,12 +36,15 @@
     @endif
 
     {{-- CONTENT --}}
-    <div class="flex flex-col items-center justify-center w-full mt-10 px-3 md:px-28">
-        {{ $slot }}
+    <div class=" flex-grow ">
+        <div class="flex flex-colitems-center justify-center w-full mt-10 px-3 md:px-28">
+            {{ $slot }}
+        </div>
     </div>
 
     {{-- FOOTER --}}
-    <x-layout.footer :tel="$pagina->telefono" :dir="$pagina->direccion" :correo="$pagina->correo" :face="$pagina->url_facebook" :whatsapp="$pagina->url_whatsapp" />
+    <x-layout.footer :tel="$pagina->telefono" :dir="$pagina->direccion" :correo="$pagina->correo" :face="$pagina->url_facebook" :whatsapp="$pagina->url_whatsapp"
+        class="mt-auto" />
 
     {{-- Scripts --}}
     @stack('modals')

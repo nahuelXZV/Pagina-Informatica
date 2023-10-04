@@ -11,7 +11,7 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        $noticias = Noticias::orderBy('created_at', 'desc')->paginate(4);
+        $noticias = Noticias::orderBy('updated_at', 'desc')->paginate(4);
         $tramites = Tramites::orderBy('created_at', 'desc')->paginate(2);
         $pagina = Pagina::find(1);
         return view('welcome', compact('noticias', 'tramites', 'pagina'));

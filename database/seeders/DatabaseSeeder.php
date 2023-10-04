@@ -47,30 +47,30 @@ class DatabaseSeeder extends Seeder
             'plan_estudio' => '',
         ]);
 
-        for ($i = 0; $i < 50; $i++) {
-            $titulo = 'Titulo ' . $i;
-            $slug = 'titulo-' . $i;
-            Noticias::create([
-                'titulo' => $titulo,
-                'slug' => $slug,
-                'descripcion' => 'loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-                'fecha' => '21 de septiembre de 2021',
-                'imagen_principal' => 'https://picsum.photos/seed/800/600',
-                'contenido' => '
-                    loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-                    loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-                    loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-                    loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-                    loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. '
-            ]);
-            Tramites::create([
-                'titulo' => $titulo,
-                'descripcion' => 'loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-                'fecha' => '21 de septiembre de 2021',
-                'imagen_principal' => 'https://picsum.photos/seed/800/600',
-                'modelo_carta' => 'https://picsum.photos/seed/800/600',
-            ]);
-        }
+        // for ($i = 0; $i < 50; $i++) {
+        //     $titulo = 'Titulo ' . $i;
+        //     $slug = 'titulo-' . $i;
+        //     Noticias::create([
+        //         'titulo' => $titulo,
+        //         'slug' => $slug,
+        //         'descripcion' => 'loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+        //         'fecha' => '21 de septiembre de 2021',
+        //         'imagen_principal' => 'https://picsum.photos/seed/800/600',
+        //         'contenido' => '
+        //             loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+        //             loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+        //             loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+        //             loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+        //             loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. '
+        //     ]);
+        //     Tramites::create([
+        //         'titulo' => $titulo,
+        //         'descripcion' => 'loremp ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+        //         'fecha' => '21 de septiembre de 2021',
+        //         'imagen_principal' => 'https://picsum.photos/seed/800/600',
+        //         'modelo_carta' => 'https://picsum.photos/seed/800/600',
+        //     ]);
+        // }
 
 
 
