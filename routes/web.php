@@ -79,6 +79,3 @@ Route::middleware([
         Route::get('/show', Show::class)->name('profile');
     });
 });
-Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/custom/livewire/livewire.js', $handle);
-});
