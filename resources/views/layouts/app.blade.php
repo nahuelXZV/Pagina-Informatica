@@ -16,9 +16,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
-    <script src="{{ asset('livewire/livewire.js') }}"></script>
     <!-- Styles -->
-    {{-- @livewireStyles --}}
+    @livewireStyles
 </head>
 
 <body class="font-sans antialiased flex flex-col min-h-screen">

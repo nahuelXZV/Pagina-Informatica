@@ -19,6 +19,7 @@ use App\Livewire\Dashboard\Users\ListUsuario;
 use App\Livewire\Dashboard\Users\NewUsuario;
 use App\Livewire\Public\ListTramites;
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,4 +78,7 @@ Route::middleware([
     Route::group(['prefix' => 'perfil'], function () {
         Route::get('/show', Show::class)->name('profile');
     });
+});
+Livewire::setScriptRoute(function ($handle) {
+    return Route::get('/custom/livewire/livewire.js', $handle);
 });
