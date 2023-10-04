@@ -31,7 +31,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+// ruta '/' redirigir a home
+Route::redirect('/', '/home');
+Route::get('/home', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/acerca', [PageController::class, 'acerca'])->name('acerca');
 Route::get('/noticias', [PageController::class, 'noticias'])->name('noticias');
 Route::get('/noticias/{slug}', ShowNoticia::class)->name('noticias.show');
