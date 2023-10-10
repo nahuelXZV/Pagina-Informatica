@@ -17,10 +17,8 @@ use App\Livewire\Dashboard\Tramites\ListTramite;
 use App\Livewire\Dashboard\Tramites\NewTramite;
 use App\Livewire\Dashboard\Users\ListUsuario;
 use App\Livewire\Dashboard\Users\NewUsuario;
-use App\Livewire\Public\ListTramites;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +28,10 @@ use Livewire\Livewire;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
+
 */
 
-// ruta '/' redirigir a home
+
 Route::redirect('/', '/home');
 Route::get('/home', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/acerca', [PageController::class, 'acerca'])->name('acerca');

@@ -12,15 +12,15 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-
         <!-- Styles -->
         @livewireStyles
+        <script src="{{ asset('livewire/livewire.js') }}"></script>
+
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
 
-        @livewireScripts
     </body>
 </html>
