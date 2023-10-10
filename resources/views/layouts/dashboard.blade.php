@@ -20,8 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
     <!-- Styles -->
     @livewireStyles
-    <script src="{{ asset('livewire/livewire.js') }}"></script>
-
+    @livewireScripts
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
